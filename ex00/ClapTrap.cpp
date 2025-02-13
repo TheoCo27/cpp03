@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:36:14 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/12 20:03:53 by tcohen           ###   ########.fr       */
+/*   Updated: 2025/02/13 01:45:02 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
-		*this = other;
+	{
+		this->_name = other._name;
+		this->_AttackDamage = other._AttackDamage;
+		this->_HitPoints = other._HitPoints;
+		this->_EnergyPoints = other._EnergyPoints;
+	}
 	return (*this);
 }
 
@@ -46,15 +51,18 @@ ClapTrap::~ClapTrap(void)
 unsigned int ClapTrap::getHitPoint(void)
 {
 	std::cout << "getHitPoint called" << std::endl;
+	return (_HitPoints);
 }
 
 unsigned int ClapTrap::getEnergyPoint(void)
 {
 	std::cout << "getEnergyPoint called" << std::endl;
+	return (_EnergyPoints);
 }
 std::string ClapTrap::getName(void)
 {
 	std::cout << "getName called" << std::endl;
+	return (_name);
 }
 //setter
 void ClapTrap::setHitPoint(unsigned int hitpoint)
@@ -72,9 +80,12 @@ void ClapTrap::setName(std::string name)
 //methods
 void ClapTrap::attack(const std::string& target)
 {
-	if (_EnergyPoints == 0)
+	if (_EnergyPoints == 0 || _HitPoints == 0)
 	{
-		std::cout << "Not enough energy points to attack" << std::endl;
+		if(_EnergyPoints == 0)
+			std::cout << "Not enough energy points to attack" << std::endl;
+		if(_HitPoints == 0)
+			std::cout << "Not enough Hit points to attack" << std::endl;
 		return;
 	}
 	std::cout << _name << " attacks " << target << " causing " 
@@ -85,25 +96,32 @@ void ClapTrap::attack(const std::string& target)
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << _name << " has been attacked " << " causing " 
-	<< amount << " points of damage !"<< std::endl;
-
-	if (amount > _HitPoints)
+	if (_HitPoints == 0)
 	{
-		_HitPoints = 0;
+		std::cout << _name << " is already dead" << std::endl;
 		return;
 	}
-	_HitPoints -= amount;
+	std::cout << _name << " has been attacked " << " causing " 
+	<< amount << " points of damage !"<< std::endl;
+	if (amount > _HitPoints)
+		_HitPoints = 0;
+	if (_HitPoints >= amount)
+		_HitPoints -= amount;
+	std::cout << _name << " has " << _HitPoints << " hitpoints left" << std::endl;
 	
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_EnergyPoints == 0)
 	{
-		std::cout << "Not enough energy points to be repaired" << std::endl;
+		if(_EnergyPoints == 0)
+			std::cout << "Not enough energy points to be repaired" << std::endl;
 		return;
 	}
-	std :: cout << _name << " repaired itself and gained" << amount 
+	std :: cout << _name << " repaired itself and gained " << amount 
 	<< " hitPoints back" << std::endl;
+	_HitPoints += amount;
 	_EnergyPoints--;
+	std::cout << _name << "now has " << _HitPoints << " left and " 
+	<< _EnergyPoints << " energy points left" << std::endl;
 }
