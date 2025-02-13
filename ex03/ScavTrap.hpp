@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 02:07:51 by theog             #+#    #+#             */
-/*   Updated: 2025/02/13 03:02:54 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/13 13:15:59 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
     public:
         ScavTrap(void);

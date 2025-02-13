@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 03:06:45 by theog             #+#    #+#             */
-/*   Updated: 2025/02/13 03:15:21 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/13 14:49:35 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 FragTrap::FragTrap(void) : ClapTrap()
 {
 	std::cout << "FragTrap Default constructor called" << std::endl;
-    this->_name = "Scavengers";
-    this->_HitPoints = 100;
-    this->_EnergyPoints = 100;
+	if (this->_HitPoints == 10)
+    	this->_HitPoints = 100;
+	if (this->_EnergyPoints == 10)
+    	this->_EnergyPoints = 100;
     this->_AttackDamage = 30;
 }
 

@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:48:55 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/13 03:00:41 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/13 14:19:10 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class ClapTrap
 	//getter
 		unsigned int getHitPoint(void);
 		unsigned int getEnergyPoint(void);
+		unsigned int getAttackDamage(void);
 		std::string getName(void);
 	//setter
 		void setHitPoint(unsigned int hitpoint);

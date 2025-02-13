@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 02:07:54 by theog             #+#    #+#             */
-/*   Updated: 2025/02/13 02:57:40 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/13 14:50:24 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
 	std::cout << "ScavTrap Default constructor called" << std::endl;
-    this->_name = "Scavengers";
     this->_HitPoints = 100;
     this->_EnergyPoints = 50;
     this->_AttackDamage = 20;
@@ -56,18 +55,18 @@ ScavTrap::~ScavTrap(void)
 //methods
 void ScavTrap::attack(const std::string& target)
 {
-	if (_EnergyPoints == 0 || _HitPoints == 0)
+	if (this->_EnergyPoints == 0 || this->_HitPoints == 0)
 	{
-		if(_EnergyPoints == 0)
+		if(this->_EnergyPoints == 0)
 			std::cout << "ScavTrap Not enough energy points to attack" << std::endl;
-		if(_HitPoints == 0)
+		if(this->_HitPoints == 0)
 			std::cout << "ScavTrap Not enough Hit points to attack" << std::endl;
 		return;
 	}
-	std::cout << _name << " attacks " << target << " causing " 
-	<< _AttackDamage << " points of damage ! ScavTrap"<< std::endl;
+	std::cout << this->_name << " attacks " << target << " causing " 
+	<< this->_AttackDamage << " points of damage ! ScavTrap"<< std::endl;
 	//ScavTrap <name> attacks <target>, causing <damage> points of damage!
-	_EnergyPoints--;
+	this->_EnergyPoints--;
 }
 
 
