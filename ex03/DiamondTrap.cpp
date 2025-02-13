@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:56:35 by theog             #+#    #+#             */
-/*   Updated: 2025/02/13 14:36:07 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/13 17:43:28 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(void) : ClapTrap("Snoop doggy dooooog_clap_name"), FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap(void) : ClapTrap("Snoop doggy dooooog_clap_name"), ScavTrap(), FragTrap()
 {
     std::cout << "DiamondTrap default constructor called" << std::endl;
 
@@ -65,7 +65,7 @@ DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), ScavT
     this->_HitPoints = FragTrap::_HitPoints;
     this->_AttackDamage = FragTrap::_AttackDamage;
 }
-DiamondTrap::DiamondTrap(const DiamondTrap &other): ClapTrap(other), FragTrap(other), ScavTrap(other)
+DiamondTrap::DiamondTrap(const DiamondTrap &other): ClapTrap(other),  ScavTrap(other), FragTrap(other)
 {
     std::cout << "DiamondTrap copy constructor called" << std::endl;
 

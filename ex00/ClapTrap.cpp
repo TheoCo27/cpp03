@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tcohen <tcohen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 19:36:14 by tcohen            #+#    #+#             */
-/*   Updated: 2025/02/13 01:45:02 by theog            ###   ########.fr       */
+/*   Updated: 2025/02/13 17:30:28 by tcohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,17 @@ std::string ClapTrap::getName(void)
 void ClapTrap::setHitPoint(unsigned int hitpoint)
 {
 	std::cout << "setHitPoint called" << std::endl;
+	_HitPoints = hitpoint;
 }
 void ClapTrap::setEnergyPoint(unsigned int energypoint)
 {
 	std::cout << "setEnergyPoint called" << std::endl;
+	_EnergyPoints = energypoint;
 }
 void ClapTrap::setName(std::string name)
 {
 	std::cout << "setName called" << std::endl;
+	this->_name = name;
 }
 //methods
 void ClapTrap::attack(const std::string& target)
